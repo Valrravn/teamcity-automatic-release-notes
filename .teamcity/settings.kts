@@ -42,8 +42,8 @@ object RetrieveIssues : BuildType({
     """.trimIndent()
 
     params {
-        password("env.GITHUB_TOKEN", "credentialsJSON:da821e9b-22a7-4880-b8bd-995fa9280af8")
         password("env.YT_TOKEN", "credentialsJSON:624bf789-1956-423f-b46e-991d4be44a01")
+        password("env.GITHUB_TOKEN", "credentialsJSON:af8db27d-0151-4e44-becb-02d6cd73ac0e")
         text("full-version-escaped", "", display = ParameterDisplay.HIDDEN, allowEmpty = true)
         text("build-number", "", label = "Build Number", description = """Leave "0" if no build number is yet assigned. If specified, will be appended to the short version: full product version will be in the {short-version (build-number)} format""", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("release-date", "", label = "Release Date", description = """Enter the value in the "d MMMM yyyy" format (for example, 5 April 2025), or leave empty to use today's date. The date is added to the Release Notes and Previous Downloads articles""", display = ParameterDisplay.PROMPT, allowEmpty = true)
