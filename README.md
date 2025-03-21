@@ -2,14 +2,15 @@
 
 ## Mandatory parameters
 
-* `Short TeamCity version` — TC version in the "year.major.minor" format. For example, "2025.03" or "2024.12.2".
+* `TeamCity version` — shows a list of versions matching `project: TeamCity` on YouTrack. Relies on an external plugin by Grigory Chernyshev: https://plugins.jetbrains.com/plugin/9076-web-parameters
 * `env.repo_branch` — the repository branch where the config should write files and send a pull request.
 
 ## Optional parameters
 
-* `Build number` — if set, will be added to the `short TC version`. YouTrack REST API calls will then use `{short_version (build_number)}` version instead of simply `short_version`. This parameter can be unknown at the time RNs are generated, hence optionality.
 * `Release date` — the release date in the "d MMMM yyyy" format (for example, "2 March 2028"). Specify manually if collecting Release Notes beforehand, or updating already published Release Notes. Leave empty to insert the `DateTime.Now` date.
 * `file-name` (Hidden parameter) — automatically set to the "teamcity-year-major-minor-release-notes.md" value based on the short TC version parameter. Unhide this param to be able to override it.
+* `Short TeamCity version` (Hidden parameter, superseded by autopopulated list of TC versions) — TC version in the "year.major.minor" format. For example, "2025.03" or "2024.12.2".
+* `Build number` (Hidden parameter, superseded by autopopulated list of TC versions) — if set, will be added to the `short TC version`. YouTrack REST API calls will then use `{short_version (build_number)}` version instead of simply `short_version`. This parameter can be unknown at the time RNs are generated, hence optionality.
 
 ## Password parameters
 
