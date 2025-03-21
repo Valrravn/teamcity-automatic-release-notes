@@ -25,3 +25,7 @@ Set these parameters when deploying this config on your local machine.
 * Security issues — `"query": "project: TeamCity Fix versions: %full-version%  #Testing #Fixed -{Trunk issue} #{Security Problem}"`
 
 Queries are in different formats since non-security issues are retrieved by sending `GET` to the `api/issues` endpoint (we need issues themselves), and security issues are loaded by sending `POST` to the `/api/issuesGetter/count` endpoint (we don't need these issues, only the total count)
+
+* Known TeamCity versions — `https://youtrack.jetbrains.com/api/admin/customFieldSettings/bundles/version/128-1?fields=values(name)`, see the [VersionBundle](https://www.jetbrains.com/help/youtrack/devportal/api-entity-VersionBundle.html) model.
+    * The `128-1` number is the "Fix versions" custom field bundle. Call `https://youtrack.jetbrains.com/api/admin/projects/22-0?fields=id,name,createdBy,customFields(id,field(id,name))` to get all custom fields for the TC project.
+    * In the previous request, `22-0` is the ID for the TeamCity project. Call `https://youtrack.jetbrains.com/api/admin/projects?fields=id,name&$top=1000` to get an YT project ID
